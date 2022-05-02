@@ -1,0 +1,1 @@
+INSERT INTO banco (codigo, descricao, status) VALUES ('001','001 - BANCO DO BRASIL S/A', 0);
