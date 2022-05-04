@@ -5,7 +5,7 @@ CREATE TABLE marca (
 
 CREATE TABLE marca_pneu (
 	id			SERIAL 			PRIMARY KEY,
-	descricao 	VARCHAR(255)	NOT NULL UNIQUE
+	descricao 	VARCHAR(255)	NOT NULL UNIQUE,
 );
 
 CREATE TABLE tipo_eixo (
