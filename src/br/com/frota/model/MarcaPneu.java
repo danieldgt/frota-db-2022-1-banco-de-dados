@@ -1,13 +1,13 @@
 package br.com.frota.model;
 
-public class Marca extends GenericModel {
+public class MarcaPneu extends GenericModel {
     private String descricao;
 
-    public Marca(String descricao) {
+    public MarcaPneu(String descricao) {
         this.descricao = descricao;
     }
 
-    public Marca(Integer id, String descricao) {
+    public MarcaPneu(Integer id, String descricao) {
         this.descricao = descricao;
         super.setId(id);
     }

@@ -11,18 +11,21 @@ public class Teste {
 
     public static void main(String[] args) throws SQLException {
 
+        //count
+        System.out.println(marcaDAO.count());
+
         //salvar
-        Marca marca = new Marca("Toyota");
+        Marca marca = new Marca("Citroen");
         marcaDAO.insertMarca(marca);
 
         //buscar por ID
-        marca = marcaDAO.selectMarca(1);
+        marca = marcaDAO.selectMarca(2);
         System.out.println(marca);
 
         //Update
         marca.setDescricao("Volt");
         marcaDAO.updateMarca(marca);
-        marca = marcaDAO.selectMarca(1);
+        marca = marcaDAO.selectMarca(2);
         System.out.println(marca);
 
         //Select all
@@ -30,7 +33,7 @@ public class Teste {
         marcas.forEach(System.out::println);
 
         //Delete
-        marcaDAO.deleteMarca(1);
+        marcaDAO.deleteMarca(2);
         marcaDAO.selectAllMarcas().forEach(System.out::println);
     }
 }
