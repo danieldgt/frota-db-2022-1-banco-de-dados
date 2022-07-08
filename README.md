@@ -19,3 +19,7 @@ precisa estar na pasta do arquivo
 -a imprimir o que está sendo executado
 -f arquivo que será executado
 $ psql -h 200.17.32.221 -p 5432 -d professor_frota -U postgres -a -f inserts.sql
+
+
+O Projeto tem um crud básico da entidade marca, e para testar o main está no path:
+src/br/com/frota/util/Teste.java
