@@ -2,6 +2,7 @@ package br.com.frota.util;
 
 import br.com.frota.DAO.MarcaDAO;
 import br.com.frota.model.Marca;
+import com.google.gson.Gson;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -35,5 +36,7 @@ public class Teste {
         //Delete
         marcaDAO.deleteMarca(2);
         marcaDAO.selectAllMarcas().forEach(System.out::println);
+
+        System.out.println(new Gson().toJson(marca));
     }
 }
