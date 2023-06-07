@@ -19,7 +19,7 @@ public class MarcaDAO extends ConexaoDB {
 
     public Integer count() {
         Integer count = 0;
-        try (PreparedStatement preparedStatement = prapararSQL(TOTAL)) {
+        try (PreparedStatement preparedStatement = prepararSQL(TOTAL)) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
@@ -34,7 +34,7 @@ public class MarcaDAO extends ConexaoDB {
     }
 
     public void insertMarca(Marca entidade) {
-        try (PreparedStatement preparedStatement = prapararSQL(INSERT_MARCA_SQL)) {
+        try (PreparedStatement preparedStatement = prepararSQL(INSERT_MARCA_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -46,7 +46,7 @@ public class MarcaDAO extends ConexaoDB {
 
     public Marca selectMarca(int id) {
         Marca entidade = null;
-        try (PreparedStatement preparedStatement = prapararSQL(SELECT_MARCA_BY_ID)) {
+        try (PreparedStatement preparedStatement = prepararSQL(SELECT_MARCA_BY_ID)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -64,7 +64,7 @@ public class MarcaDAO extends ConexaoDB {
 
     public List<Marca> selectAllMarcas() {
         List<Marca> entidades = new ArrayList<>();
-        try (PreparedStatement preparedStatement = prapararSQL(SELECT_ALL_MARCA)) {
+        try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_MARCA)) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
@@ -81,7 +81,7 @@ public class MarcaDAO extends ConexaoDB {
     }
 
     public boolean deleteMarca(int id) throws SQLException {
-        try (PreparedStatement statement = prapararSQL(DELETE_MARCA_SQL)) {
+        try (PreparedStatement statement = prepararSQL(DELETE_MARCA_SQL)) {
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
         } catch (ClassNotFoundException e) {
@@ -90,7 +90,7 @@ public class MarcaDAO extends ConexaoDB {
     }
 
     public boolean updateMarca(Marca entidade) throws SQLException {
-        try (PreparedStatement statement = prapararSQL(UPDATE_MARCA_SQL)) {
+        try (PreparedStatement statement = prepararSQL(UPDATE_MARCA_SQL)) {
             statement.setString(1, entidade.getDescricao());
             statement.setInt(2, entidade.getId());
 

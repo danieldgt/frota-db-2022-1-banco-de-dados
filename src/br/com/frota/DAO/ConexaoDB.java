@@ -24,7 +24,7 @@ public class ConexaoDB {
         }
     }
 
-    public static PreparedStatement prapararSQL(String sql) throws SQLException, ClassNotFoundException {
+    public static PreparedStatement prepararSQL(String sql) throws SQLException, ClassNotFoundException {
         return conexaoDB().prepareStatement(sql);
     }
 

@@ -17,7 +17,7 @@ public class MarcaPneuDAO extends ConexaoDB {
     private static final String UPDATE_MARCA_SQL = "UPDATE marca_pneu SET descricao = ? WHERE id = ?;";
 
     public void insertMarcaPneu(MarcaPneu entidade) {
-        try (PreparedStatement preparedStatement = prapararSQL(INSERT_MARCA_SQL)) {
+        try (PreparedStatement preparedStatement = prepararSQL(INSERT_MARCA_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -29,7 +29,7 @@ public class MarcaPneuDAO extends ConexaoDB {
 
     public MarcaPneu selectMarcaPneu(int id) {
         MarcaPneu entidade = null;
-        try (PreparedStatement preparedStatement = prapararSQL(SELECT_MARCA_BY_ID)) {
+        try (PreparedStatement preparedStatement = prepararSQL(SELECT_MARCA_BY_ID)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -47,7 +47,7 @@ public class MarcaPneuDAO extends ConexaoDB {
 
     public List<MarcaPneu> selectAllMarcaPneus() {
         List<MarcaPneu> entidades = new ArrayList<>();
-        try (PreparedStatement preparedStatement = prapararSQL(SELECT_ALL_MARCA)) {
+        try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_MARCA)) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
@@ -64,7 +64,7 @@ public class MarcaPneuDAO extends ConexaoDB {
     }
 
     public boolean deleteMarcaPneu(int id) throws SQLException {
-        try (PreparedStatement statement = prapararSQL(DELETE_MARCA_SQL)) {
+        try (PreparedStatement statement = prepararSQL(DELETE_MARCA_SQL)) {
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
         } catch (ClassNotFoundException e) {
@@ -73,7 +73,7 @@ public class MarcaPneuDAO extends ConexaoDB {
     }
 
     public boolean updateMarcaPneu(MarcaPneu entidade) throws SQLException {
-        try (PreparedStatement statement = prapararSQL(UPDATE_MARCA_SQL)) {
+        try (PreparedStatement statement = prepararSQL(UPDATE_MARCA_SQL)) {
             statement.setString(1, entidade.getDescricao());
             statement.setInt(2, entidade.getId());
 
